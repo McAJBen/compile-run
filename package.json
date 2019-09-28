@@ -7,11 +7,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run tsc --",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "prepare": "npm run build",
+    "prepack": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vibhor1997a/compile-run.git"
+    "url": "git+https://github.com/mcajben/compile-run.git"
   },
   "keywords": [
     "compile",
@@ -27,15 +29,14 @@
     "c",
     "c++"
   ],
-  "author": "vibhor agrawal <vibhor349a@rediffmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vibhor1997a/compile-run/issues"
+    "url": "https://github.com/mcajben/compile-run/issues"
   },
-  "homepage": "https://github.com/vibhor1997a/compile-run#readme",
+  "homepage": "https://github.com/mcajben/compile-run#readme",
   "devDependencies": {
-    "@types/node": "^10.12.15",
-    "typescript": "^3.5.3"
+    "@types/node": "^12.7.8",
+    "typescript": "^3.6.3"
   },
   "files": [
     "dist",

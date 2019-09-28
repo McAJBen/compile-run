@@ -14,7 +14,7 @@ interface ReceivedMessage {
 process.on('message', (msg: ReceivedMessage) => {
     let initialCPUUsage = process.cpuUsage();
     let initialMemUsage = process.memoryUsage();
-    let cp: ChildProcess = spawn(msg.cmd, msg.arguments,);
+    let cp: ChildProcess = spawn(msg.cmd, msg.arguments);
 
     //write to stdin
     writeToStdin(cp, msg.stdin);
@@ -22,8 +22,12 @@ process.on('message', (msg: ReceivedMessage) => {
         cp.kill();
     }, msg.timeout);
     let resultPromise: Promise<string>[] = [];
-    resultPromise.push((streamDataToString(cp.stderr)));
-    resultPromise.push(streamDataToString(cp.stdout));
+    if (cp.stderr) {
+        resultPromise.push(streamDataToString(cp.stderr));
+    }
+    if (cp.stdout) {
+        resultPromise.push(streamDataToString(cp.stdout));
+    }
     let pr = Promise.all(resultPromise);
     cp.on('close', exitCode => {
         let memUsage = process.memoryUsage();

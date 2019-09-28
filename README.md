@@ -159,9 +159,3 @@ API's offer an optional options object which has following keys:-
 3. `compileTimeout` - timeout during compilation for c, cpp, java in milliseconds. Default is 3000 milliseconds. Would be ignored if passed for node or python
 4. `compilationPath` - path for the compiler for c, cpp and java i.e for gcc and javac respectively. These paths defined by you if provided else defaults would be used.
 5. `executionPath` - path for the command to execute the program used in java, python, nodejs i.e for `java`, `python` and `node` respectively. These paths defined by you if provided else defaults would be used.
-
-## Compile-run 1.x.x
-
-The versions < 2.x.x have been deprecated due to inconsistencies so its recommended to use version > 2.0.0.
-
-You can find compile run version 1.x.x at https://github.com/vibhor1997a/compile-run-1.
